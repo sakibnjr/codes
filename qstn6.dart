@@ -1,33 +1,42 @@
+import "dart:io";
+
 abstract class Shape {
-  double calculateArea();
+  int calculateArea();
 }
 
 class Rectangle extends Shape {
-  double width;
-  double height;
+  int width;
+  int height;
 
   Rectangle(this.width, this.height);
 
   @override
-  double calculateArea() {
+  int calculateArea() {
     return width * height;
   }
 }
 
 class Circle extends Shape {
-  double radius;
+  int radius;
 
   Circle(this.radius);
 
   @override
-  double calculateArea() {
-    return 3.14 * radius * radius;
+  int calculateArea() {
+    return 3 * radius * radius;
   }
 }
 
 void main() {
-  Rectangle rectangle = Rectangle(5, 10);
-  Circle circle = Circle(7);
+  print("Enter Height: ");
+  int height = int.parse(stdin.readLineSync()!);
+  print("Enter Width: ");
+  int width = int.parse(stdin.readLineSync()!);
+  print("Enter Radius: ");
+  int radius = int.parse(stdin.readLineSync()!);
+
+  Rectangle rectangle = Rectangle(height, width);
+  Circle circle = Circle(radius);
 
   print('Area of rectangle: ${rectangle.calculateArea()}');
   print('Area of circle: ${circle.calculateArea()}');
