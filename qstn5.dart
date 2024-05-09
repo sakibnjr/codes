@@ -1,6 +1,7 @@
-class Student {
-  int _grade = 0; // Initialized with 0
+import "dart:io";
 
+class Student {
+  int _grade = 0;
   void setGrade(int grade) {
     if (grade >= 0) {
       _grade = grade;
@@ -13,8 +14,9 @@ class Student {
 }
 
 void main() {
+  print("Enter your grade - ");
+  int grade = int.parse(stdin.readLineSync()!);
   var student = Student();
-  student.setGrade(85);
-  student.setGrade(-10); // Will trigger the error message
-  print(student.getGrade()); // Output: 85
+  student.setGrade(grade);
+  print("Your final grade: ${student.getGrade()}");
 }
